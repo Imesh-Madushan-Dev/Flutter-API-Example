@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_api_example/models/poduct_model.dart';
+import 'package:flutter_api_example/pages/edit_product.dart';
 import 'package:flutter_api_example/services/api/api_service.dart';
 
 class SingleProduct extends StatelessWidget {
@@ -33,7 +35,7 @@ class SingleProduct extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
+                      SizedBox(
                         height: 280,
                         width: double.infinity,
                         child: Center(
@@ -67,6 +69,52 @@ class SingleProduct extends StatelessWidget {
                             color: Colors.grey),
                       ),
                       const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextButton(
+                              style: ButtonStyle(
+                                  backgroundColor:
+                                      WidgetStateProperty.all(Colors.indigo)),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => EditProductPage(
+                                      product: product,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'Edit',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              )),
+                          TextButton(
+                              style: ButtonStyle(
+                                  backgroundColor: WidgetStateProperty.all(
+                                      Colors.redAccent)),
+                              onPressed: () async {
+                                try {
+                                  await apiService.deleteProduct(product.id!);
+                                  Navigator.pop(context);
+                                  print('wada hutto wada');
+                                } catch (e) {
+                                  print('Error deleting product: $e');
+                                }
+                              },
+                              child: Text(
+                                'Delete',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              )),
+                        ],
+                      )
                     ],
                   ),
                 );

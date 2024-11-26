@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api_example/models/poduct_model.dart';
+import 'package:flutter_api_example/pages/add_product.dart';
 import 'package:flutter_api_example/pages/single_prodcut.dart';
 import 'package:flutter_api_example/services/api/api_service.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -25,7 +26,12 @@ class _HomePageState extends State<HomePage> {
         clipBehavior: Clip.antiAlias,
         backgroundColor: Colors.indigo,
         onPressed: () {
-          // Add your action here
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddProductPage(),
+            ),
+          );
         },
         child: const Icon(
           Icons.add,
@@ -61,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                SingleProduct(productId: product.id),
+                                SingleProduct(productId: product.id!),
                           ),
                         ),
                         child: Container(
@@ -79,14 +85,14 @@ class _HomePageState extends State<HomePage> {
                                 const SizedBox(height: 15),
                                 Text(
                                   product.title,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(height: 10),
                                 Text(
                                   "\$${product.price}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.indigo),
@@ -94,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                                 const SizedBox(height: 10),
                                 Text(
                                   product.category,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 15, color: Colors.grey),
                                 ),
                               ],
