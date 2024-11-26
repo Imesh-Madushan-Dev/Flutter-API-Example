@@ -11,9 +11,7 @@ A Flutter-based e-commerce app that fetches and displays products using the [Fak
 - Clean and modular architecture.
 
 ## Screenshots
-![Screenshot_1732640873](https://github.com/user-attachments/assets/e09d1dca-6fd9-4eff-9f37-feb57b8ee66f)
-![Screenshot_1732640887](https://github.com/user-attachments/assets/2422c9a8-c23f-45da-9aef-e69e64a5e61b)
-![Screenshot_1732640879](https://github.com/user-attachments/assets/e7b098b8-7863-49dd-b407-73686e24fedd)
+![photo-collage png](https://github.com/user-attachments/assets/6f45469c-ec55-448c-b0c9-52baca2cc1b5)
 
 
 ## Installation
